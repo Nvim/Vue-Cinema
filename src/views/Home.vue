@@ -1,12 +1,13 @@
 <script setup>
 import axios from 'axios';
 import { ref, watch } from 'vue'
-import { user } from "../user.js"
+import { useUserStore } from "@/stores/user.js"
 
 let loading = ref(false)
 let error = ref(null)
 let cinemas = ref([]);
 let films = ref([]);
+const store = useUserStore();
 
 loading.value = true;
 try {
@@ -35,8 +36,8 @@ finally {
 <template>
   <div>
     <div class="text-2xl font-extrabold p-2">
-      <div v-if="!user.value">Accueil</div>
-      <div v-if="user.value">Bienvenue, {{ user.value.NomClient }}</div>
+      <div v-if="!store.user">Accueil</div>
+      <div v-if="store.user">Bienvenue, {{ store.user.NomClient }}</div>
     </div>
 
     <div class="bg-gray-100 rounded-lg p-4">

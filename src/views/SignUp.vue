@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router"
-import { user, token } from "../user.js"
+import { useUserStore } from "@/stores/user.js"
+
+const store = useUserStore();
+const router = useRouter();
 
 const nom = ref('');
 const prenom = ref('');
@@ -24,8 +27,9 @@ const formHandler = async (event) => {
     } else if (response.status === 201) {
       const json = await response.json()
       const { user: userObject } = json;
-      user.value = { ...userObject }
-      success.value = true
+      store.setUser(userObject);
+      store.login();
+      success.value = true;
       router.push('/');
     }
   } catch (error) {

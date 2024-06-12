@@ -5,6 +5,7 @@ import Film from "@/views/Film.vue";
 import Cinema from "@/views/Cinema.vue";
 import SignUp from "@/views/SignUp.vue";
 import LogIn from "@/views/LogIn.vue";
+import Profile from "@/views/Profile.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
   { path: "/film/:id", name: "Film", component: Film },
   { path: "/signup", name: "SignUp", component: SignUp },
   { path: "/login", name: "LogIn", component: LogIn },
+  { path: "/profile", name: "Profile", component: Profile },
 ];
 
 const router = createRouter({
