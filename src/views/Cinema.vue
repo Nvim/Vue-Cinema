@@ -5,12 +5,14 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const props = defineProps({ id: { required: true }, });
 
 let loading = ref(false)
 let error = ref(null)
 let cinema = ref(null);
 
 loading.value = true;
+console.log("IdCine: ", props.id)
 try {
   axios.get(`http://localhost:3000/cinema/${route.params.id}`)
     .then(response => {
@@ -29,8 +31,8 @@ finally {
 
 <template>
   <div v-if="cinema">
-    <div>
-      <img :src="`src/assets/${cinema.ImageCine}`" alt="flop">
+    <div class="w-full">
+      <img :src="`/src/assets/${cinema.ImageCine}`" alt="img" class="">
     </div>
     <div class="text-2xl font-extrabold">{{ cinema.NomCine }}</div>
     <div>

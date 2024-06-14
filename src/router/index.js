@@ -11,12 +11,22 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/cinemas", name: "Cinemas", component: Cinemas },
-  { path: "/cinema/:id", name: "Cinema", component: Cinema },
+  {
+    path: "/cinema/:id",
+    name: "Cinema",
+    component: Cinema,
+    props: true,
+  },
   { path: "/films", name: "Films", component: Films },
   { path: "/film/:id", name: "Film", component: Film },
   { path: "/signup", name: "SignUp", component: SignUp },
   { path: "/login", name: "LogIn", component: LogIn },
-  { path: "/profile", name: "Profile", component: Profile },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+    meta: { requiresAuth: true },
+  },
 ];
 
 const router = createRouter({

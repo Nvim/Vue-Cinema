@@ -5,37 +5,25 @@ import { useUserStore } from "@/stores/user.js"
 
 const store = useUserStore();
 const router = useRouter();
-const data = ref("");
-try {
-  const response = await fetch("http://localhost:3000/protected", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    credentials: "include"
-  });
+const error = ref("");
+const data = ref([])
 
-  if (response.status === 400) {
-    errors.value = await response.json();
-  }
-  else if (response.status === 403) {
-    data.value = "Invalid Token! Please log in again";
-  }
-  else if (response.status === 401) {
-    data.value = "No Token! Please log in or sign up";
-  }
-  else if (response.status === 201) {
-    const json = await response.json()
-    const res = json;
-    data = JSON.stringify(json);
-    success.value = true;
-  }
-} catch (error) {
-  console.error('Fetch error:', error);
-}
+data.value = store.user
+error.value = null
+
 </script>
 
 <template>
   <div class="text-2xl font-bold">
     Profile Page
   </div>
-  {{ data }}
+  <div v-if="error">
+    Une erreur est survenue: {{ error }}
+  </div>
+  <div v-else-if="data">
+    {{ data }}
+  </div>
+  <div v-else>
+    Huh ??
+  </div>
 </template>

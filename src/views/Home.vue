@@ -48,8 +48,8 @@ finally {
       <div v-if="cinemas" class="flex overflow-x-auto space-x-4">
         <div v-for="cinema in cinemas" :key="cinema.idCine" class="bg-gray-200 rounded-xl">
           <div class="p-2">
-            <img :src="`src/assets/${cinema.ImageCine}`" alt="img" class="max-h-52 max-w-52 rounded-lg">
-            <router-link :to="`/cinema/${cinema.IdCine}`">{{ cinema.NomCine }}</router-link>
+            <img :src="`/src/assets/${cinema.ImageCine}`" alt="img" class="max-h-52 max-w-52 rounded-lg">
+            <router-link :to="`/cinema/${cinema.IdCine}`" id="cinema.IdCine">{{ cinema.NomCine }}</router-link>
           </div>
         </div>
       </div>
@@ -65,6 +65,7 @@ finally {
       <div v-if="films" class="flex overflow-x-auto space-x-4">
         <div v-for="film in films" :key="films.IdFilm" class="bg-gray-200 rounded-xl">
           <div class="p-2">
+            <!-- <img :src="`src/assets/${film.ImageFilm}`" alt="img" class="max-h-52 max-w-52 rounded-lg"> -->
             <img :src="`src/assets/${film.ImageFilm}`" alt="img" class="max-h-52 max-w-52 rounded-lg">
             <router-link :to="`/film/${film.IdFilm}`">{{ film.NomFilm }}</router-link>
           </div>

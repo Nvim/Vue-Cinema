@@ -15,7 +15,7 @@ const logUser = () => {
   <nav>
     <div class="flex bg-red-900 text-gray-200 font-bold ">
       <div class="flex py-8 space-x-4 px-8 w-4/5">
-        <button @click="logUser" class="bg-green-400 p-6">Get user</button>
+        <!-- <button @click="logUser" class="bg-green-400 p-6">Get user</button> -->
         <router-link to="/" class="hover:text-gray-400">Home</router-link>
         <br>
         <router-link to="/films" class="hover:text-gray-400">Films</router-link>
