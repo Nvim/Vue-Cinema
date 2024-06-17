@@ -30,18 +30,7 @@ const logUser = () => {
     </div>
   </nav>
   <div class="text-xl m-12">
-    <router-view v-slot="{ Component }">
-      <template v-if="Component">
-        <keep-alive>
-          <Suspense>
-            <component :is="Component"></component>
-            <template #fallback>
-              Loading...
-            </template>
-          </Suspense>
-        </keep-alive>
-      </template>
-    </router-view>
+    <router-view></router-view>
   </div>
 </template>
 
